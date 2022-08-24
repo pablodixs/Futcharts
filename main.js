@@ -14,9 +14,13 @@ window.onload = async () => {
         let pos1 = data
 
         console.log(data)
+
+        // LOOP PARA CRIAR A TABELA
         
         for(let p = 0; p <= data.length; p++){
             let pos2 = data[p]
+
+            // FUNÇÃO PARA MOSTRAR A VARIAÇÃO
 
             function variacao() {
                 let variation = pos2.variacao_posicao
@@ -33,12 +37,37 @@ window.onload = async () => {
                 }
             }
 
+            // FUNÇÃO PARA OS ÚLTIMOS JOGOS
+
+            let ultimos = data[p].ultimos_jogos
+
+            // function verify() {
+            //     let ultimos = data[p].ultimos_jogos
+            
+            //     for(let u = 0; u <= ultimos.length; u++) {
+            //         if(ultimos[u].includes('v')) {
+            //             let resp = 'v'
+            //             return resp
+            //         } else if(ultimos[u].includes('d')) {
+            //             let resp = 'd'
+            //             return resp
+            //         } else if(ultimos[u].includes('e')) {
+            //             let resp = 'e'
+            //             return resp
+            //         } else {
+            //             console.log('ERRO')
+            //         }
+            //     }
+            // }
+
+            // INSERE A TABELA NO HTML
+
             document.getElementById('table').innerHTML += `
             <tr>
-                <td>${pos2.posicao}</td>
+                <td class="n-pos">${pos2.posicao}</td>
                 <td class='var-pos'>${variacao()}</td>
-                <td><img src="${pos2.time.escudo}" width="30px" height="30px"></td>
-                <td>${pos2.time['nome_popular']}</td>
+                <td><img src="${pos2.time.escudo}" width="25px" height="25px"></td>
+                <td class="n-time">${pos2.time['nome_popular']}</td>
                 <td>${pos2.pontos}</td>
                 <td>${pos2.jogos}</td>
                 <td>${pos2.vitorias}</td>
@@ -48,13 +77,7 @@ window.onload = async () => {
                 <td>${pos2.gols_contra}</td>
                 <td>${pos2.saldo_gols}</td>
                 <td>${pos2.aproveitamento}</td>
-                <td>
-                <span class='variacao'></span>
-                <span class='variacao'></span>
-                <span class='variacao'></span>
-                <span class='variacao'></span>
-                <span class='variacao'></span>
-                </td>
+                <td>${ultimos}</td>
             </tr>`
         }
     })
