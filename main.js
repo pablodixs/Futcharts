@@ -1,6 +1,6 @@
 
 const apiUrl = 'https://api.api-futebol.com.br/v1/campeonatos/10/tabela'
-const authToken = 'test_678e568139d49f697686bcac73452d'
+const authToken = 'live_aa7308f8eebe2fdc46899635fea9ab'
 
 window.onload = async () => {
     const response = fetch(apiUrl, {
