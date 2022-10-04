@@ -15,9 +15,9 @@ export function CampHero({ data }: DataTypes) {
         <NavigationContainer>
           <span>Campeonatos</span>
           <CaretRight size={14} weight={"bold"} />
-          <span>Campeonato Brasileiro Série B</span>
+          <span>Campeonato Brasileiro Série A</span>
         </NavigationContainer>
-        <HeroTitle>Brasileirão Série B</HeroTitle>
+        <HeroTitle>Brasileirão</HeroTitle>
       </GlobalContainerFlex>
     </HeroContainer>
   );

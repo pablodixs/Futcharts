@@ -22,19 +22,19 @@ const liveKey = "live_aa7308f8eebe2fdc46899635fea9ab";
 const getInfoCamp = {
   method: "GET",
   url: "https://api.api-futebol.com.br/v1/campeonatos/10",
-  headers: { Authorization: `Bearer ${testKey}` },
+  headers: { Authorization: `Bearer ${liveKey}` },
 };
 
 const getTable = {
   method: "GET",
   url: "https://api.api-futebol.com.br/v1/campeonatos/10/tabela",
-  headers: { Authorization: `Bearer ${testKey}` },
+  headers: { Authorization: `Bearer ${liveKey}` },
 };
 
 const getGames = {
   method: "GET",
   url: "https://api.api-futebol.com.br/v1/campeonatos/10/rodadas/28",
-  headers: { Authorization: `Bearer ${testKey}` },
+  headers: { Authorization: `Bearer ${liveKey}` },
 };
 
 export function App() {
