@@ -12,7 +12,7 @@ import {
   GlobalContainerFlex,
   GlobalStyle,
 } from "./styles/global";
-import { defautlTheme } from "./styles/themes/default";
+import { defautlTheme } from "./styles/theme";
 import { CampTableSkeleton } from "./components/CampTable/CampTableSkeleton";
 import { CampGame } from "./components/CampGames";
 

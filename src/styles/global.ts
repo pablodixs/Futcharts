@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: ${props => props.theme.black900};
+    background-color: #101010;
     -webkit-font-smoothing: antialiased;
     text-rendering: geometricPrecision;
   }

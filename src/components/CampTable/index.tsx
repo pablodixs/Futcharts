@@ -17,7 +17,7 @@ import {
 
 interface CampTableProps {
   data: [];
-  info: {};
+  info: any;
   isLoading: boolean;
 }
 
