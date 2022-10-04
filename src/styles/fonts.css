@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "Supreme";
+  src: url("../assets/fonts/Supreme-Variable.woff2") format("woff2"),
+    url("../assets/fonts/Supreme-Variable.woff") format("woff"),
+    url("../assets/fonts/Supreme-Variable.ttf") format("truetype");
+  font-weight: 100 800;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FreightSansProBlack';
+  src: url('../assets/fonts/FreightSansProBlack-Regular.eot');
+  src: local('FreightSans Pro Black'), local('FreightSansProBlack-Regular'),
+      url('../assets/fonts/FreightSansProBlack-Regular.eot?#iefix') format('embedded-opentype'),
+      url('../assets/fonts/FreightSansProBlack-Regular.woff2') format('woff2'),
+      url('../assets/fonts/FreightSansProBlack-Regular.woff') format('woff'),
+      url('../assets/fonts/FreightSansProBlack-Regular.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
