@@ -1,7 +1,7 @@
 import { HeaderContainer, Logo } from "./styles";
 
 export function Header() {
-  return(
+  return (
     <HeaderContainer>
       <nav>
         <ul>
@@ -12,5 +12,5 @@ export function Header() {
       </nav>
       <Logo />
     </HeaderContainer>
-  )
+  );
 }

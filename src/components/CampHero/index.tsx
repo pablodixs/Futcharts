@@ -2,17 +2,22 @@ import { CaretRight } from "phosphor-react";
 
 import { GlobalContainerFlex } from "../../styles/global";
 import { HeroContainer, HeroTitle, NavigationContainer } from "./styles";
-
-export function CampHero() {
+interface DataTypes {
+  data: {
+    nome: string
+    nome_popular: string
+  }
+}
+export function CampHero({ data }: DataTypes) {
   return (
     <HeroContainer>
       <GlobalContainerFlex>
         <NavigationContainer>
           <span>Campeonatos</span>
           <CaretRight size={14} weight={"bold"} />
-          <span>Brasileirão Série A</span>
+          <span>{data.nome}</span>
         </NavigationContainer>
-        <HeroTitle>Brasileirão Série A</HeroTitle>
+        <HeroTitle>{data.nome_popular}</HeroTitle>
       </GlobalContainerFlex>
     </HeroContainer>
   );

@@ -10,6 +10,8 @@ export const HeaderContainer = styled.header`
   justify-content: center;
   align-items: center;
   position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
 
   *:hover {
       transition: all ease 150ms
@@ -18,7 +20,6 @@ export const HeaderContainer = styled.header`
   nav {
     position: absolute;
     left: 0;
-    margin-left: 1.5rem;
 
     ul {
       list-style: none;

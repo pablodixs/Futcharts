@@ -29,3 +29,9 @@ export const GlobalContainerFlex = styled.div`
   max-width: 1280px;
   margin: 0 auto;
 `
+
+export const CampContainerFlex = styled.main`
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem
+`
