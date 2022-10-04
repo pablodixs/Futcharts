@@ -6,7 +6,12 @@ import { CampHero } from "./components/CampHero";
 import { CampTable } from "./components/CampTable";
 import { Header } from "./components/Header";
 
-import { CampContainerFlex, GlobalContainer, GlobalContainerFlex, GlobalStyle } from "./styles/global";
+import {
+  CampContainerFlex,
+  GlobalContainer,
+  GlobalContainerFlex,
+  GlobalStyle,
+} from "./styles/global";
 import { defautlTheme } from "./styles/themes/default";
 import { CampTableSkeleton } from "./components/CampTable/CampTableSkeleton";
 import { CampGame } from "./components/CampGames";
@@ -28,7 +33,7 @@ const getTable = {
 
 const getGames = {
   method: "GET",
-  url: "https://api.api-futebol.com.br/v1/campeonatos/10/rodadas/1",
+  url: "https://api.api-futebol.com.br/v1/campeonatos/10/rodadas/28",
   headers: { Authorization: `Bearer ${testKey}` },
 };
 
@@ -36,45 +41,57 @@ export function App() {
   const [campInfo, setCampInfo] = useState<any>({});
   const [classification, setClassification] = useState<[]>([]);
   const [score, setScore] = useState<{}>({});
-  
-  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    axios
+  const [isLoadingInfo, setIsLoadingInfo] = useState(true);
+  const [isLoadingTable, setIsLoadingTable] = useState(true);
+  const [isLoadingGames, setIsLoadingGames] = useState(true);
+
+  async function getInfoAsync() {
+    const data = await axios
       .request(getInfoCamp)
       .then((response) => {
-        console.log(response.data);
         setCampInfo(response.data);
-        setIsLoading(false)
+        setIsLoadingInfo(false);
       })
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }
 
   useEffect(() => {
-    axios
+    getInfoAsync();
+  }, []);
+
+  async function getTablesAsync() {
+    const data = await axios
       .request(getTable)
       .then((response) => {
-        console.log(response.data);
         setClassification(response.data);
-        setIsLoading(false);
+        setIsLoadingTable(false);
       })
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }
 
   useEffect(() => {
-    axios
+    getTablesAsync();
+  }, []);
+
+  async function getGamesAsync() {
+    const data = await axios
       .request(getGames)
       .then((response) => {
         setScore(response.data.partidas[0]);
-        setIsLoading(false);
+        setIsLoadingGames(false);
       })
       .catch((error) => {
         console.error(error);
       });
+  }
+
+  useEffect(() => {
+    getGamesAsync();
   }, []);
 
   return (
@@ -84,13 +101,25 @@ export function App() {
       <CampHero data={campInfo} />
       <GlobalContainer>
         <CampContainerFlex>
-          {isLoading ? (
+          {isLoadingTable ? (
             <CampTableSkeleton />
           ) : (
-            <CampTable data={classification} info={campInfo.rodada_atual}  />
+            <CampTable
+              data={classification}
+              info={campInfo.rodada_atual}
+              isLoading={isLoadingTable}
+            />
           )}
-          <CampGame title={'Próxima partida'} data={score} />
-          <CampGame title={'Última partida'} data={score} />
+          <CampGame
+            title={"Próxima partida"}
+            data={score}
+            isLoading={isLoadingGames}
+          />
+          <CampGame
+            title={"Última partida"}
+            data={score}
+            isLoading={isLoadingGames}
+          />
         </CampContainerFlex>
       </GlobalContainer>
     </ThemeProvider>

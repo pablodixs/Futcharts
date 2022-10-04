@@ -6,7 +6,7 @@ interface DataTypes {
   data: {
     nome: string
     nome_popular: string
-  }
+  },
 }
 export function CampHero({ data }: DataTypes) {
   return (
@@ -15,9 +15,9 @@ export function CampHero({ data }: DataTypes) {
         <NavigationContainer>
           <span>Campeonatos</span>
           <CaretRight size={14} weight={"bold"} />
-          <span>{data.nome}</span>
+          <span>Campeonato Brasileiro Série B</span>
         </NavigationContainer>
-        <HeroTitle>{data.nome_popular}</HeroTitle>
+        <HeroTitle>Brasileirão Série B</HeroTitle>
       </GlobalContainerFlex>
     </HeroContainer>
   );
