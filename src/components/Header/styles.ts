@@ -88,7 +88,7 @@ export const CampHighlight = styled.div`
 export const NavContent = styled(NavigationMenu.Content)`
   display: flex;
   flex-direction: column;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
   padding: 1rem;
   border-radius: 5px;
   border: 1px solid #212121;

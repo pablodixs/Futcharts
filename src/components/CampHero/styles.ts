@@ -23,6 +23,6 @@ export const HeroTitle = styled.h1`
   width: 100%;
   font-family: 'FreightSansProBlack', sans-serif;
   text-transform: uppercase;
-  font-size: 3rem;
+  font-size: 4rem;
   letter-spacing: -1px;
 `
