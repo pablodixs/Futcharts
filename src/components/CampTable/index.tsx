@@ -1,5 +1,8 @@
 import { CaretDown, CaretUp, Minus } from "phosphor-react";
+import { useContext } from "react";
 import Skeleton from "react-loading-skeleton";
+
+import { BrasileiraoContext } from "../../contexts/BrasileiraoContext";
 
 import {
   DotDerrota,
@@ -15,18 +18,14 @@ import {
   TableVariationCell,
 } from "./styles";
 
-interface CampTableProps {
-  data: [];
-  info: any;
-  isLoading: boolean;
-}
+export function CampTable() {
+  const { campInfo, isCampInfoLoading, classification } = useContext(BrasileiraoContext);
 
-export function CampTable({ data, info, isLoading }: CampTableProps) {
   return (
     <TableContainer>
       <TableHeader>
         <h1>Classificação</h1>
-        {isLoading ? <Skeleton /> : <h3>{info.nome}</h3>}
+        {isCampInfoLoading ? <Skeleton /> : <h3>{campInfo.rodada_atual.nome}</h3>}
       </TableHeader>
       <Table>
         <tbody>
@@ -37,7 +36,7 @@ export function CampTable({ data, info, isLoading }: CampTableProps) {
             <th title="Pontos">P</th>
             <th title="Últimos Jogos">U. Jogos</th>
           </tr>
-          {data.map((data: any) => {
+          {classification.map((data: any) => {
             return (
               <tr key={data.posicao}>
                 <TablePositionCell>{data.posicao}</TablePositionCell>

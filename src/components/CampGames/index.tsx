@@ -1,6 +1,7 @@
 import { formatDistanceToNow } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
 import Skeleton from "react-loading-skeleton";
+import { useContext } from "react";
 
 import {
   ClubContainer,
@@ -8,15 +9,16 @@ import {
   PlacarContainer,
   ScoreContainer,
 } from "./styles";
+import { BrasileiraoContext } from "../../contexts/BrasileiraoContext";
 
-interface CampGameProps {
-  title: string;
-  data: any;
-  isLoading: boolean;
+interface CampTableData {
+  title: string
 }
 
-export function CampGame({ title, data, isLoading }: CampGameProps) {
-  const timeGame = data.data_realizacao_iso;
+export function CampGame({ title }: CampTableData) {
+  const { score, isLoadingGames } = useContext(BrasileiraoContext);
+
+  const timeGame = score.data_realizacao_iso;
 
   function convertTime(date: Date) {
     if (date == undefined) {
@@ -36,7 +38,7 @@ export function CampGame({ title, data, isLoading }: CampGameProps) {
       <h1>{title}</h1>
       <ScoreContainer>
         <ClubContainer>
-          {isLoading ? (
+          {isLoadingGames ? (
             <Skeleton
               circle
               baseColor={"#171717"}
@@ -45,20 +47,20 @@ export function CampGame({ title, data, isLoading }: CampGameProps) {
               height={"40px"}
             />
           ) : (
-            <img src={data.time_mandante.escudo} />
+            <img src={score.time_mandante.escudo} />
           )}
-          {isLoading ? (
+          {isLoadingGames ? (
             <Skeleton
               baseColor={"#171717"}
               highlightColor={"#1e1e1e"}
               width={"40px"}
             />
           ) : (
-            <span>{data.time_mandante.sigla}</span>
+            <span>{score.time_mandante.sigla}</span>
           )}
         </ClubContainer>
         <PlacarContainer>
-          {isLoading ? (
+          {isLoadingGames ? (
             <Skeleton
               baseColor={"#171717"}
               highlightColor={"#1e1e1e"}
@@ -66,10 +68,10 @@ export function CampGame({ title, data, isLoading }: CampGameProps) {
               height={"50px"}
             />
           ) : (
-            <h1>{data.placar_mandante}</h1>
+            <h1>{score.placar_mandante}</h1>
           )}
           <span>X</span>
-          {isLoading ? (
+          {isLoadingGames ? (
             <Skeleton
               baseColor={"#171717"}
               highlightColor={"#1e1e1e"}
@@ -77,11 +79,11 @@ export function CampGame({ title, data, isLoading }: CampGameProps) {
               height={"50px"}
             />
           ) : (
-            <h1>{data.placar_visitante}</h1>
+            <h1>{score.placar_visitante}</h1>
           )}
         </PlacarContainer>
         <ClubContainer>
-          {isLoading ? (
+          {isLoadingGames ? (
             <Skeleton
               circle
               baseColor={"#171717"}
@@ -90,22 +92,22 @@ export function CampGame({ title, data, isLoading }: CampGameProps) {
               height={"40px"}
             />
           ) : (
-            <img src={data.time_visitante.escudo} />
+            <img src={score.time_visitante.escudo} />
           )}
-          {isLoading ? (
+          {isLoadingGames ? (
             <Skeleton
               baseColor={"#171717"}
               highlightColor={"#1e1e1e"}
               width={"40px"}
             />
           ) : (
-            <span>{data.time_visitante.sigla}</span>
+            <span>{score.time_visitante.sigla}</span>
           )}
         </ClubContainer>
       </ScoreContainer>
       <span>
         Encerrado{" "}
-        {isLoading ? (
+        {isLoadingGames ? (
           <Skeleton baseColor={"#171717"} highlightColor={"#1e1e1e"} inline />
         ) : (
           convertTime(timeGame)

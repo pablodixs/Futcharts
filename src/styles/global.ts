@@ -35,7 +35,36 @@ export const GlobalContainerFlex = styled.div`
 `;
 
 export const CampContainerFlex = styled.main`
-  margin-top: 2rem;
+  margin-top: 1rem;
   display: flex;
   gap: 1rem;
 `;
+
+interface LinkButtonTypes {
+  primary?: boolean
+  active?: boolean
+}
+
+export const LinkButton = styled.button<LinkButtonTypes>`
+  border: none;
+  padding: .5rem 1rem; 
+  background-color: ${props => props.active ? props.theme.grey500 : props.theme.black500 };
+  border-radius: 3px;
+  margin-right: 1rem;
+  transition: all ease 150ms;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: ${props => props.theme.grey500 };
+  }
+`
+
+export const HeadingPrimary = styled.h1`
+  font-family: 'FreightSansProBlack', 'Supreme', sans-serif;
+  text-transform: uppercase;
+  margin-top: 1rem;
+  text-align: center;
+`

@@ -5,6 +5,8 @@ export const HeroContainer = styled.div`
   height: 11rem;
   padding: 1rem 0;
   background-color: ${(props) => props.theme.greenBrasileiraoA};
+  margin-bottom: 1rem;
+
   * {
     color: black;
   }
@@ -24,7 +26,7 @@ export const NavigationContainer = styled.div`
 
 export const HeroTitle = styled.h1`
   width: 100%;
-  font-family: "FreightSansProBlack", sans-serif;
+  font-family: "FreightSansProBlack", "Supreme", sans-serif;
   text-transform: uppercase;
   font-size: 4rem;
   letter-spacing: -1px;
