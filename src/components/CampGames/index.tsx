@@ -106,11 +106,7 @@ export function CampGame({ title, data, isLoading }: CampGameProps) {
       <span>
         Encerrado{" "}
         {isLoading ? (
-          <Skeleton
-            baseColor={"#171717"}
-            highlightColor={"#1e1e1e"}
-            inline
-          />
+          <Skeleton baseColor={"#171717"} highlightColor={"#1e1e1e"} inline />
         ) : (
           convertTime(timeGame)
         )}

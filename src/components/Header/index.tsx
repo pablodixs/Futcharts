@@ -1,4 +1,5 @@
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
+import { NavLink } from "react-router-dom";
 
 import {
   CampHighlight,
@@ -22,7 +23,9 @@ export function Header() {
       <NavigationMenu.Root>
         <NavigationMenu.List>
           <NavigationMenu.Item>
-            <NavigationMenu.Trigger>Página Inicial</NavigationMenu.Trigger>
+            <NavLink to={"/"}>
+              <NavigationMenu.Trigger>Página Inicial</NavigationMenu.Trigger>
+            </NavLink>
           </NavigationMenu.Item>
           <NavigationMenu.Item>
             <NavigationMenu.Trigger>Campeonatos</NavigationMenu.Trigger>
@@ -32,10 +35,12 @@ export function Header() {
                   <ImgHighlight src={cupLogo} />
                 </CampHighlight>
                 <CampLinkListContainer>
-                  <LinkCamps href="#">
-                    Brasileirão Série A
-                    <ImgHighlight src="https://upload.wikimedia.org/wikipedia/pt/4/42/Campeonato_Brasileiro_S%C3%A9rie_A_logo.png" />
-                  </LinkCamps>
+                  <NavLink to={"/brasileirao"}>
+                    <LinkCamps>
+                      Brasileirão Série A
+                      <ImgHighlight src="https://upload.wikimedia.org/wikipedia/pt/4/42/Campeonato_Brasileiro_S%C3%A9rie_A_logo.png" />
+                    </LinkCamps>
+                  </NavLink>
                   <LinkCamps href="#">
                     Champion's League
                     <img src="https://pnggrid.com/wp-content/uploads/2021/04/UEFA-Champions-League-Logo-PNG-White-1024x939.png" />
@@ -94,7 +99,9 @@ export function Header() {
           </NavigationMenu.Item>
         </NavigationMenu.List>
       </NavigationMenu.Root>
-      <Logo />
+      <NavLink to={"/"}>
+        <Logo />
+      </NavLink>
     </HeaderContainer>
   );
 }

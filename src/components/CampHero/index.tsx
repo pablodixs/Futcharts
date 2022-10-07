@@ -1,23 +1,27 @@
 import { CaretRight } from "phosphor-react";
+import { useContext } from "react";
+import Skeleton from "react-loading-skeleton";
+import { Link } from "react-router-dom";
+
+import { BrasileiraoContext } from "../../contexts/BrasileiraoContext";
 
 import { GlobalContainerFlex } from "../../styles/global";
 import { HeroContainer, HeroTitle, NavigationContainer } from "./styles";
-interface DataTypes {
-  data: {
-    nome: string
-    nome_popular: string
-  },
-}
-export function CampHero({ data }: DataTypes) {
+
+export function CampHero() {
+  const { campInfo, isCampInfoLoading } = useContext(BrasileiraoContext)
+
   return (
     <HeroContainer>
       <GlobalContainerFlex>
         <NavigationContainer>
-          <span>Campeonatos</span>
+          <Link to={"/campeonatos"}>
+            <span>Campeonatos</span>
+          </Link>
           <CaretRight size={14} weight={"bold"} />
-          <span>Campeonato Brasileiro Série A</span>
+          {isCampInfoLoading ? <Skeleton baseColor="#c6ff01" highlightColor="#748f12" width={"200px"} /> : <span>{campInfo.nome}</span>}
         </NavigationContainer>
-        <HeroTitle>Brasileirão</HeroTitle>
+        {isCampInfoLoading ? <Skeleton baseColor="#c6ff01" highlightColor="#748f12" height={"4rem"} /> : <HeroTitle>{campInfo.nome_popular}</HeroTitle>}
       </GlobalContainerFlex>
     </HeroContainer>
   );

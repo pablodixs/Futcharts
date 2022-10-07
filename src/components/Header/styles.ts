@@ -49,7 +49,7 @@ export const HeaderContainer = styled.header`
           cursor: pointer;
 
           &:hover {
-            background-color: ${(props) => props.theme.blueBrasileiraoA};
+            background-color: ${(props) => props.theme.blue500};
           }
         }
       }

@@ -4,8 +4,11 @@ export const HeroContainer = styled.div`
   width: 100%;
   height: 11rem;
   padding: 1rem 0;
-  background-color: ${props => props.theme.blueBrasileiraoA};
-`
+  background-color: ${(props) => props.theme.greenBrasileiraoA};
+  * {
+    color: black;
+  }
+`;
 
 export const NavigationContainer = styled.div`
   font-size: 0.875rem;
@@ -17,12 +20,12 @@ export const NavigationContainer = styled.div`
   &::first-child {
     font-weight: 500;
   }
-`
+`;
 
 export const HeroTitle = styled.h1`
   width: 100%;
-  font-family: 'FreightSansProBlack', sans-serif;
+  font-family: "FreightSansProBlack", sans-serif;
   text-transform: uppercase;
   font-size: 4rem;
   letter-spacing: -1px;
-`
+`;
