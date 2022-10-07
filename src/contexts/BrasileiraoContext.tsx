@@ -2,11 +2,13 @@ import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 
 interface BrasileiraoContextType {
-  campInfo: {
-    nome: string,
-    nome_popular: string
-  },
-  isCampInfoLoading: boolean
+  campInfo:
+    | {
+        nome: string;
+        nome_popular: string;
+      }
+    | any;
+  isCampInfoLoading: boolean;
 }
 
 export const BrasileiraoContext = createContext({} as BrasileiraoContextType);
